@@ -30,4 +30,8 @@ Questions:
     OO-design??
     
 TODO:
-    Match History (Last 10 games, Victory/Defeat)
+    Make homepage and user page prettier
+    User page:
+        Match History
+        Winning Percentage
+        W/L Graph
