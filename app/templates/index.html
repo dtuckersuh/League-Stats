@@ -1,0 +1,27 @@
+<html>
+    <head>
+        {% if title %}
+        <title> {{ title }} - LeagueApp</title>
+        {% else %}
+        <title> Welcome to LeagueApp</title>
+        {% endif %}
+    </head>
+    <body>
+        <h1>Hello, {{ user.username }}!</h1>
+        <div><p>Your level is <b>{{ user.getLevel() }}</b></p></div>
+        <div><p>Top 5 Champions: 
+            <ol>
+            {% for key, value in champions.items() %}
+                <li>{{key}} : {{value}}</li>
+            {% endfor %}
+            </ol>
+        </p></div>
+        <div><p> Match History 
+            <ol>
+                {% for match in match_history %}
+                    <li>{{match.get('champion')}} : {{match.get('outcome')}}</li>
+                {% endfor %}
+            </ol>
+        </p></div>
+    </body>
+</html>

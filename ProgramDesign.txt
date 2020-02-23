@@ -1,0 +1,33 @@
+Objective:
+    op.gg clone
+    Player profile data analysis/observation
+    
+Classes:
+    User (Summoner)
+        Contains basic info
+        most played champions
+        match History
+
+First Steps:
+    Fetch user
+    Display user statistics on user page
+        Primary Tab:
+        Graph showing current climb over past 10ish game
+        Overall Winrate over the past 10ish games
+        Fav/most played champions
+        
+Match History:
+    Display Victory/Defeat
+    KDA
+    Champion Played
+    Other players
+
+Mastery List:
+    Top 5 champions
+    Display Champion and mastery points
+
+Questions:
+    OO-design??
+    
+TODO:
+    Match History (Last 10 games, Victory/Defeat)
