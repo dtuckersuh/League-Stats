@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1>{{ user.username }}</h1>
-    <br>
-    <h2>Top Five Champions</h2>
-    {% set top_five=user.getTopFiveChamps() %}
-    <ul class="list-group">
-        {% for key, value in top_five.items() %}
-            <li class="list-group-item">{{key}} : {{value}}</li>
-        {% endfor %}
-    </ul>
+    <div class="jumbotron">
+        <h1 class="display-4">{{ user.username }}</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Top Five Champions</h2>
+                {% set top_five=user.getTopFiveChamps() %}
+                <ul class="list-group">
+                    {% for key, value in top_five.items() %}
+                        <li class="list-group-item">{{key}} : {{value}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Match History</h2>
+                {% set match_history=user.getMatchHistory() %}
+                <ul class="list-group">
+                    {% for match in match_history %}
+                        <li class="list-group-item">{{match.get('outcome')}} : {{match.get('champion')}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

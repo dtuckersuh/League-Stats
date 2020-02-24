@@ -4,7 +4,7 @@ import json
 
 class Summoner:
 
-    watcher = RiotWatcher('RGAPI-6810e04d-cb23-471c-abae-a0bf45414b90')
+    watcher = RiotWatcher('RGAPI-69aa00df-641a-490e-bc2b-ac4d40c9971b')
     region = 'na1'
 
     def __init__(self, username):
@@ -27,9 +27,6 @@ class Summoner:
     # Return Champion Name and Mastery Points
     # Dict['Champion Name': Mastery Points]
     def getTopFiveChamps(self):
-        with open("./en_US/champion.json", "r", encoding="utf8") as read_file:
-            champ_file = json.load(read_file)
-        champ_data = champ_file.get('data')
         top_five = {}
         champ_keys = []
         champ_names = []
@@ -41,7 +38,7 @@ class Summoner:
             champ_keys.append(mastery_list[i].get('championId'))
             points.append(mastery_list[i].get('championPoints'))
 
-        # Search champion.json file for champion
+        # Iteratively add champion to champ_names
         for key in champ_keys:
             champ_names.append(self.getChampion(key))
 
@@ -49,9 +46,9 @@ class Summoner:
         for i in range(5):
             top_five[champ_names[i]] = points[i]
         return top_five
-    
+
     # Return List[match_info]
-    # match_info = champion:outcome
+    # match_info is a dictionary
     def getMatchHistory(self):
         matches = self.getMatchlist()
         matchlist = []
@@ -77,7 +74,7 @@ class Summoner:
                           'champion': self.getChampion(champion)}
             matchlist.append(match_info)
         return matchlist
-
+    
     # Helper for Match History
     # Returns List[last 10 matches] which contain lane and gameId
     def getMatchlist(self):
@@ -85,11 +82,13 @@ class Summoner:
         matchlist = matchlist.get('matches')
         return matchlist
 
+    # Given champion.json file and champion id
+    # Return champion corresponding to id
     def getChampion(self, id):
+        # Search champion.json file for champion
         with open("./en_US/champion.json", "r", encoding="utf8") as read_file:
             champ_file = json.load(read_file)
         champ_data = champ_file.get('data')
-        # Search champion.json file for champion
         for champ in champ_data.items():
             attribute = champ[1]
             if (int(attribute.get('key'))) == id:
@@ -102,3 +101,4 @@ class Summoner:
             return 'Victory'
         else:
             return 'Defeat'
+            

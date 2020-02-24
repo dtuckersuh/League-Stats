@@ -20,6 +20,6 @@ def index():
 @app.route('/user/<username>')
 def user(username):
     user = Summoner(username)
-    return render_template('user.html', title='User', user=user)
+    return render_template('user.html', title=username, user=user)
 
 
