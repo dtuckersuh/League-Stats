@@ -4,9 +4,13 @@ Objective:
     
 Classes:
     User (Summoner)
-        Contains basic info
-        most played champions
-        match History
+        Responsible for all summoner info
+
+    Matches:
+        Responsible for all match info
+    
+    Champion:
+        Responsible for all champion info
 
 First Steps:
     Fetch user
@@ -25,13 +29,15 @@ Match History:
 Mastery List:
     Top 5 champions
     Display Champion and mastery points
-
-Questions:
-    OO-design??
+    Icon
     
 TODO:
     Make homepage and user page prettier
+    
     User page:
-        Match History
+        Match History:
+            W/L, Champion, KDA, Items, players
         Winning Percentage
         W/L Graph
+
+    Error Handling
