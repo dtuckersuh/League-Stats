@@ -17,8 +17,11 @@ def index():
         flash('All fields required')
     return render_template('index.html', title='Home', form=form)
 
+@app.route('/user/')
 @app.route('/user/<username>')
-def user(username):
+def user(username=None):
+    if not username:
+        return redirect(url_for('user', username=request.args['search']))
     user = Summoner(username)
     return render_template('user.html', title=username, user=user)
 

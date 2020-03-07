@@ -4,7 +4,7 @@ import json
 
 class Summoner:
 
-    watcher = RiotWatcher('RGAPI-69aa00df-641a-490e-bc2b-ac4d40c9971b')
+    watcher = RiotWatcher('RGAPI-5e730bcc-c411-4135-a63e-1a534b53fe45')
     region = 'na1'
 
     def __init__(self, username):

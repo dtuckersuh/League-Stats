@@ -32,12 +32,16 @@ Mastery List:
     Icon
     
 TODO:
-    Make homepage and user page prettier
+    - Make homepage and user page sleeker
     
-    User page:
+    - User page:
         Match History:
             W/L, Champion, KDA, Items, players
         Winning Percentage
         W/L Graph
 
-    Error Handling
+    - Error Handling
+
+    - Tests
+
+    - Database to cache data that won't change too often
