@@ -37,6 +37,7 @@ TODO:
     - User page:
         Match History:
             W/L, Champion, KDA, Items, players
+            Bootstrap Cards 
         Winning Percentage
         W/L Graph
 

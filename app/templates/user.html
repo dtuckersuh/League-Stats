@@ -1,8 +1,46 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <div class="jumbotron">
-        <h1 class="display-4">{{ user.username }}</h1>
+    <head>
+        <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/summoner_layout.css') }}">
+    </head>
+    
+    <div class="Header">
+        <div class="Face">
+            <div class="ProfileIcon">
+                <img src={{ user.getProfileIcon() }} class="ProfileImage">
+            </div>
+        </div>
+        <div class="Profile">
+            <div class="Information">
+                <span class="Name">{{ user.username }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="Main" id="Main">
+        <div class="SummonerContent" style="display: block;">
+            <div class="SideContent">
+                <div class="TierBox">
+                    <div class="SummonerRating">
+                        <div class="RankedIcon">
+                            {% set path=user.getTierIcon() %}
+                            <img src={{ url_for('static', filename=path) }} class="Image">
+                        </div>
+                        <div class="RankTierInfo">
+                            {% set stats=user.getStats() %}
+                            {% set type, tier, rank, points=stats.get('queueType'), stats.get('tier'), 
+                            stats.get('rank'), stats.get('leaguePoints') %}
+                            <div class="RankType">{{ type }}</div>
+                            <div class="TierRank">{{tier + ' ' + rank}}</div>
+                            <div class="TierInfo">
+                                <span class="LeaguePoints">{{ points ~ " LP" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
@@ -15,12 +53,17 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col">
+            <div class="card">
                 <h2>Match History</h2>
                 {% set match_history=user.getMatchHistory() %}
-                <ul class="list-group">
+                <ul class="list-group list-group-flush">
                     {% for match in match_history %}
-                        <li class="list-group-item">{{match.get('outcome')}} : {{match.get('champion')}}</li>
+                        {% set outcome=match.get('outcome') %}
+                        {% if outcome=='Victory' %}
+                            <li class="list-group-item list-group-item-info">{{outcome}} : {{match.get('champion')}}</li>
+                        {% else %}
+                            <li class="list-group-item list-group-item-danger">{{outcome}} : {{match.get('champion')}}</li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </div>

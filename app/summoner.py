@@ -1,6 +1,8 @@
 from app import app
+from .league import League
 from riotwatcher import RiotWatcher, ApiError
 import json
+import os
 
 class Summoner:
 
@@ -23,6 +25,27 @@ class Summoner:
 
     def getAccountId(self):
         return self.summoner.get('accountId')
+
+    def getProfileIcon(self):
+        id = self.summoner.get('profileIconId')
+        with open("./en_US/profileicon.json", "r", encoding="utf8") as read_file:
+            icons = json.load(read_file)
+        icon_data = icons.get('data')
+        profile_icon = icon_data.get(str(id))
+        image = profile_icon.get('image')
+        return "http://ddragon.leagueoflegends.com/cdn/10.5.1/img/profileicon/" + image.get('full')
+
+    def getTierIcon(self):
+        tier = self.getStats().get('tier')
+        tier = tier.lower()
+        tier = tier.capitalize()
+        icon = "Emblem_" + tier + ".png"
+        path = 'images/' + icon
+        return path
+
+    def getStats(self):
+        stats = League.by_summoner(self, self.region, self.getSummonerId())
+        return stats
 
     # Return Champion Name and Mastery Points
     # Dict['Champion Name': Mastery Points]
