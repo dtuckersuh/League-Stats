@@ -1,0 +1,106 @@
+.Header {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0 0 0;
+}
+
+.Header>.Face {
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+}
+
+.Header>.Profile {
+    position: relative;
+    display: inline-block;
+    height: 100px;
+    margin: 0 25px 0 25px;
+    vertical-align: top;
+    line-height: 1.1;
+}
+
+
+.Header>.Face>.ProfileIcon {
+    position: relative;
+}
+
+.Header>.Face>.ProfileIcon>.borderImage {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 120px;
+    height: 120px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.Header>.Face>.ProfileIcon>.ProfileImage {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+.Header>.Profile>.Information>.Name {
+    color: #242929;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.SummonerContent {
+    width: 1000px;
+    min-height: 500px;
+    margin: 0 auto;
+}
+
+.SummonerContent>.SideContent {
+    display: inline-block;
+    width: 300px;
+    font-size: 12px;
+    vertical-align: top;
+}
+
+.SummonerContent>.SideContent.TierBox {
+    margin-top: 10px;
+}
+
+.SummonerRating {
+    display: table;
+    width: 100%;
+    position: relative;
+    padding: 8px 0;
+}
+
+.SummonerRating>.RankedIcon {
+    display: table-cell;
+    vertical-align: middle;
+    width: 120px;
+    height: 124px;
+    text-align: center;
+}
+
+.SummonerRating>.RankedIcon>.Image {
+    width: 104px;
+    height: 104px;
+    margin: -5px 0 -10px 0;
+}
+
+.SummonerRating>.RankTierInfo {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.SummonerRating>.RankTierInfo>.RankType {
+    font-size: 11px;
+}
+
+.SummonerRating>.RankTierInfo>.TierRank {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1f8ecd;
+}
