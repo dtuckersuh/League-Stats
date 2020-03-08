@@ -35,11 +35,8 @@ TODO:
     - Make homepage and user page sleeker
     
     - User page:
-        Match History:
-            W/L, Champion, KDA, Items, players
-            Bootstrap Cards 
-        Winning Percentage
-        W/L Graph
+        Separate big html files into smaller ones
+        CSS layouts (Match History)
 
     - Error Handling
 

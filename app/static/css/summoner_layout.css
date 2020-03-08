@@ -1,16 +1,15 @@
+/* Header */
 .Header {
     position: relative;
     width: 1000px;
     margin: 0 auto;
     padding: 20px 0 0 0;
 }
-
 .Header>.Face {
     display: inline-block;
     width: 100px;
     vertical-align: top;
 }
-
 .Header>.Profile {
     position: relative;
     display: inline-block;
@@ -19,12 +18,9 @@
     vertical-align: top;
     line-height: 1.1;
 }
-
-
 .Header>.Face>.ProfileIcon {
     position: relative;
 }
-
 .Header>.Face>.ProfileIcon>.borderImage {
     position: absolute;
     left: -10px;
@@ -34,13 +30,11 @@
     background-position: center bottom;
     background-repeat: no-repeat;
 }
-
 .Header>.Face>.ProfileIcon>.ProfileImage {
     display: block;
     width: 100px;
     height: 100px;
 }
-
 .Header>.Profile>.Information>.Name {
     color: #242929;
     font-size: 20px;
@@ -48,31 +42,36 @@
     margin-right: 4px;
     vertical-align: middle;
 }
-
+/*** Summoner Info ***/
 .SummonerContent {
     width: 1000px;
     min-height: 500px;
     margin: 0 auto;
 }
-
 .SummonerContent>.SideContent {
     display: inline-block;
     width: 300px;
     font-size: 12px;
     vertical-align: top;
 }
-
 .SummonerContent>.SideContent.TierBox {
     margin-top: 10px;
 }
+.SummonerContent>.RealContent {
+    display: inline-block;
+    width: 690px;
+    margin-left: 10px;
+    font-size: 12px;
+    vertical-align: top;
+}
 
+/** Summoner Rank Info **/
 .SummonerRating {
     display: table;
     width: 100%;
     position: relative;
     padding: 8px 0;
 }
-
 .SummonerRating>.RankedIcon {
     display: table-cell;
     vertical-align: middle;
@@ -80,13 +79,11 @@
     height: 124px;
     text-align: center;
 }
-
 .SummonerRating>.RankedIcon>.Image {
     width: 104px;
     height: 104px;
     margin: -5px 0 -10px 0;
 }
-
 .SummonerRating>.RankTierInfo {
     display: table-cell;
     vertical-align: middle;
@@ -94,13 +91,81 @@
     line-height: 1.5;
     text-align: left;
 }
-
 .SummonerRating>.RankTierInfo>.RankType {
     font-size: 11px;
 }
-
 .SummonerRating>.RankTierInfo>.TierRank {
     font-size: 15px;
     font-weight: bold;
     color: #1f8ecd;
+}
+
+.GameListContainer {
+    margin-top: 10px;
+}
+.GameListContainer>.Content {
+    position: relative;
+}
+.GameListContainer>.Content>.GameItemList {
+    margin-top: 8px;
+}
+
+.GameItemList>.GameItemWrap {
+    position: relative;
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+
+.GameItem>.Content {
+    display: table;
+    width: 689px;
+    border-collapse: collapse;
+    border: 1px solid #cdd2d2;
+}
+
+.GameItem.Win>.Content {
+    table-layout: fixed;
+    background-color: #a3cfec;
+    border-color: #99b9cf;
+}
+
+.GameItem.Lose>.Content {
+    table-layout: fixed;
+    background-color: #e2b6b3;
+    border-color: #cea7a7;
+}
+
+.GameItem>.Content>.GameStats {
+    width: 70px;
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    line-height: 16px;
+}
+
+.GameItem>.Content>div {
+    display: table-cell;
+    height: 96px;
+    vertical-align: middle;
+}
+
+.GameItem>.Content>.GameSettingInfo {
+    width: 100px;
+    font-size: 0;
+}
+
+.GameItem>.Content>.GameSettingInfo>.ChampionImage {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    vertical-align: middle;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.GameItem>.Content>.GameSettingInfo>.ChampionImage .Image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #000;
 }
