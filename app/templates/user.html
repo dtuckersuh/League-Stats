@@ -17,7 +17,6 @@
             </div>
         </div>
     </div>
-
     <div class="Main" id="Main">
         <div class="SummonerContent" style="display: block;">
             <div class="SideContent">
@@ -36,57 +35,6 @@
                             <div class="TierInfo">
                                 <span class="LeaguePoints">{{ points ~ " LP" }}</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="RealContent">
-                <div class="GameListContainer">
-                    <div class="Content">
-                        <div class="GameItemList">
-                            {% set match_history=user.getMatchHistory() %}
-                            {% for match in match_history %}
-                                <div class="GameItemWrap">
-                                    {% set outcome=match.get('outcome') %}
-                                    {% if outcome == 'Victory' %}
-                                        <div class="GameItem Win">
-                                            <div class="Content">
-                                                <div class="GameStats">
-                                                    <div class="GameType">
-                                                        <!-- Fill in info-->
-                                                    </div>
-                                                    <div class="GameSettingInfo">
-                                                        <div class="ChampionImage">
-                                                            {% set champ=match.get('champion') %}
-                                                            {% set link='http://ddragon.leagueoflegends.com/cdn/10.5.1/img/champion/' ~ champ ~ '.png' %}
-                                                            <img src={{ link }} class="Image">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% else %}
-                                        <div class="GameItem Lose">
-                                            <div class="Content">
-                                                <div class="GameStats">
-                                                    <div class="GameType">
-                                                        <!-- Fill in info-->
-                                                    </div>
-                                                    <div class="GameSettingInfo">
-                                                        <div class="ChampionImage">
-                                                            {% set champ=match.get('champion') %}
-                                                            {% set link='http://ddragon.leagueoflegends.com/cdn/10.5.1/img/champion/' ~ champ ~ '.png' %}
-                                                            <img src={{ link }} class="Image">
-                                                        </div>
-                                                    </div>
-                                                </div>
-    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
                         </div>
                     </div>
                 </div>

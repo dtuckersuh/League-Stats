@@ -6,7 +6,7 @@ import os
 
 class Summoner:
 
-    watcher = RiotWatcher('RGAPI-5e730bcc-c411-4135-a63e-1a534b53fe45')
+    watcher = RiotWatcher('RGAPI-7bfc7e38-2236-41d2-a6be-e02a21e7863f')
     region = 'na1'
 
     def __init__(self, username):
