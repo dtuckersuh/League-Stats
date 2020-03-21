@@ -2,6 +2,14 @@ Objective:
     op.gg clone
     Player profile data analysis/observation
     
+Ideas:
+    Goals page
+        - User creates goals for themselves to hit 
+        - CS per min
+        - Deaths
+        - Objectives Secured
+        - etc.
+
 Classes:
     User (Summoner)
         Responsible for all summoner info
