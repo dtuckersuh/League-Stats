@@ -8,5 +8,11 @@ var myChart = new Chart(ctx, {
             data : [64, 50, 74, 56, 45, 55, 78],
             backgroundColor: "rgba(44, 144, 61, 1)"
         }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'LP History'
+        }
     }
 });

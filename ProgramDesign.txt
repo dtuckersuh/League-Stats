@@ -18,8 +18,14 @@ TODO:
                 - Calculate by comparing current lp to past lp.
                 - lpDelta = Math.abs(currentLp - lastLp)
 
+    - Database
+        - User (Table)
+            - summonerId
+            - Matches
+        - Match (Connected to User)
+            - Outcome
+            - Champion
+            - 
     - Error Handling
 
     - Tests
-
-    - Database to cache data that won't change too often

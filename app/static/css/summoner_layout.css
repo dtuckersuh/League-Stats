@@ -1,14 +1,16 @@
+/* Box */
+.box {
+    margin-bottom: 1em;
+    background: rgb(193, 198, 207);
+    border-radius: 5px;
+}
+
 /* Header */
 .Header {
     position: relative;
     width: 1000px;
     margin: 0 auto;
-    padding: 20px 0 0 0;
-}
-.Header>.Face {
-    display: inline-block;
-    width: 100px;
-    vertical-align: top;
+    padding: 20px 20px 20px 20px;
 }
 .Header>.Profile {
     position: relative;
@@ -18,29 +20,33 @@
     vertical-align: top;
     line-height: 1.1;
 }
-.Header>.Face>.ProfileIcon {
-    position: relative;
-}
-.Header>.Face>.ProfileIcon>.borderImage {
-    position: absolute;
-    left: -10px;
-    top: -10px;
-    width: 120px;
-    height: 120px;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-}
-.Header>.Face>.ProfileIcon>.ProfileImage {
+.Header>.Profile>.Information {
     display: block;
+}
+
+.Header>.ProfileIcon {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+}
+.Header>.ProfileIcon>.ProfileImage {
+    display: block;
+    border-radius: 50%;
     width: 100px;
     height: 100px;
 }
-.Header>.Profile>.Information>.Name {
-    color: #242929;
-    font-size: 20px;
+
+h1.name {
+    color: #020000;
+    font-size: 36px;
     font-weight: bold;
     margin-right: 4px;
     vertical-align: middle;
+}
+p.level {
+    color: rgb(121,134,163);
+    font-size: 24px;
 }
 /*** Summoner Info ***/
 .SummonerContent {
@@ -89,12 +95,14 @@
     font-size: 12px;
     line-height: 1.5;
     text-align: left;
+    color: rgb(137, 160, 181);
 }
 .SummonerRating>.RankTierInfo>.RankType {
     font-size: 11px;
+    color: rgb(137, 160, 181);
 }
 .SummonerRating>.RankTierInfo>.TierRank {
     font-size: 15px;
     font-weight: bold;
-    color: #1f8ecd;
+    color: rgb(99, 183, 180);
 }
