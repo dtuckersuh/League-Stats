@@ -3,4 +3,6 @@ Pet project displaying user's statistics in League of Legends utilizing Riot API
 
 ![Image of Demo](/images/better_demo.JPG)
 
+________________________________________
+
 ![Image of Demo](/images/match_history_graph_skeleton.png)
