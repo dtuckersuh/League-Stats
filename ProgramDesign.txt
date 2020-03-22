@@ -1,50 +1,22 @@
 Objective:
-    op.gg clone
     Player profile data analysis/observation
-    
-Ideas:
-    Goals page
-        - User creates goals for themselves to hit 
-        - CS per min
-        - Deaths
-        - Objectives Secured
-        - etc.
 
-Classes:
-    User (Summoner)
-        Responsible for all summoner info
-
-    Matches:
-        Responsible for all match info
-    
-    Champion:
-        Responsible for all champion info
-
-First Steps:
-    Fetch user
-    Display user statistics on user page
-        Primary Tab:
         Graph showing current climb over past 10ish game
         Overall Winrate over the past 10ish games
         Fav/most played champions
-        
-Match History:
-    Display Victory/Defeat
-    KDA
-    Champion Played
-    Other players
-
-Mastery List:
-    Top 5 champions
-    Display Champion and mastery points
-    Icon
     
 TODO:
-    - Make homepage and user page sleeker
-    
     - User page:
-        Separate big html files into smaller ones
-        CSS layouts (Match History)
+        - Goals page:
+            - User creates goals for themselves to hit 
+            - CS per min
+            - Deaths
+            - Objectives Secured
+            - etc.
+        - Graphs:
+            - LP past 10 games (How to store LP? Can only fetch current LP)
+                - Calculate by comparing current lp to past lp.
+                - lpDelta = Math.abs(currentLp - lastLp)
 
     - Error Handling
 

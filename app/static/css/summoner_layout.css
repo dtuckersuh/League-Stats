@@ -57,12 +57,11 @@
 .SummonerContent>.SideContent.TierBox {
     margin-top: 10px;
 }
-.SummonerContent>.RealContent {
-    display: inline-block;
-    width: 690px;
-    margin-left: 10px;
-    font-size: 12px;
-    vertical-align: top;
+
+.SummonerContent>.MatchHistoryGraph {
+    border-top: 4px solid #00a7ff;
+    padding: 1rem;
+    box-shadow: 0 3px 4px rgba(0,0,0,.18);
 }
 
 /** Summoner Rank Info **/
