@@ -7,4 +7,4 @@ Pet project displaying user's statistics in League of Legends utilizing Riot API
 ________________________________________
 
 ## User page
-![Image of Demo](/images/match_history_graph_skeleton.png)
+![Image of Demo](/images/player_page.png)
