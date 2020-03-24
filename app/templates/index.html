@@ -1,9 +1,27 @@
-{% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% extends "base.html" %} 
+{% import 'bootstrap/wtf.html' as wtf %} 
 
 {% block app_content %}
-    <h1>League Stats</h1>
-    {% if form %}
-        {{ wtf.quick_form(form, action=url_for('index'))}}
-    {% endif %}
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="../static/css/homepage.css" />
+</head>
+<body>
+    <div class="main">
+        <section class="header">
+            <h1>Welcome to LeagueStats</h1>
+            <p>
+                A website where you can access statistics regarding your League of Legends
+                profile.
+            </p>
+        </section>
+        <section class="form">
+            {% if form %} {{ wtf.quick_form(form, action=url_for('index'))}} {% endif %}
+        </section>
+        <footer>
+            <p>LeagueStats Copyright 2020</p>
+        </footer>
+    </div>
+</body>
 {% endblock %}
