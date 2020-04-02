@@ -21,7 +21,7 @@ def index():
 @app.route('/user/<username>')
 def user(username=None):
     if not username:
-        return redirect(url_for('user', username=request.args['search']))
+        return redirect(url_for('user', username=request.args['q']))
     user = Summoner(username)
     return render_template('user.html', title=username, user=user)
 
