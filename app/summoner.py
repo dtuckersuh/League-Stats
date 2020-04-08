@@ -3,10 +3,11 @@ from .league import League
 from riotwatcher import RiotWatcher, ApiError
 import json
 import os
+import re
 
 class Summoner:
 
-    watcher = RiotWatcher('RGAPI-70332931-5576-4ae1-b779-1b5aa9929184')
+    watcher = RiotWatcher('RGAPI-415b6f2d-617e-4c86-85fc-de87ed865ac8')
     region = 'na1'
 
     def __init__(self, username):
@@ -36,16 +37,34 @@ class Summoner:
         return "http://ddragon.leagueoflegends.com/cdn/10.5.1/img/profileicon/" + image.get('full')
 
     def getTierIcon(self):
-        tier = self.getStats().get('tier')
+        tier = self.getProfileRank().get('tier')
         tier = tier.lower()
         tier = tier.capitalize()
         icon = "Emblem_" + tier + ".png"
         path = 'images/' + icon
         return path
 
-    def getStats(self):
+    # Return Player Rank Info
+    def getProfileRank(self):
         stats = League.by_summoner(self, self.region, self.getSummonerId())
-        return stats
+        # Rank
+        tier = stats.get('tier').title()
+        rank = stats.get('rank')
+        # LP / Wins Losses
+        lp = stats.get('leaguePoints')
+        wins = stats.get('wins')
+        losses = stats.get('losses')
+        # Win Ratio
+        win_ratio = (wins / (wins + losses)) * 100
+        win_ratio = round(win_ratio, 2)
+        return dict({
+            'tier': tier,
+            'rank': rank,
+            'lp': lp,
+            'wins': wins,
+            'losses': losses,
+            'win_ratio': win_ratio
+        })
 
     # Return Champion Name and Mastery Points
     # Dict['Champion Name': Mastery Points]

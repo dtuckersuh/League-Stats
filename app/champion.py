@@ -40,3 +40,7 @@ class Champion:
             if (int(attribute.get('key'))) == id:
                 return attribute.get('id')
         return None
+
+    def getChampionIcon(self, name):
+        return 'http://ddragon.leagueoflegends.com/cdn/10.7.1/img/champion/' + name + '.png'
+    
