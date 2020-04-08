@@ -1,76 +1,43 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <head>
-        <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/profilePage.css') }}">
-        <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
-    </head>
-    
-    <div class="Header box">
-        <div class="ProfileIcon">
-            <img src={{ user.getProfileIcon() }} class="ProfileImage">
-        </div>
-        <div class="Profile">
-            <div class="Information">
-                <h1 class="name">{{ user.username }}</h1>
-                <p class="level">Level: {{ user.getLevel() }}</p>
+    <div class="profilePage">
+        <div class="profileHeader">
+            <img src={{ user.getProfileIcon() }} class="profileHeader__summonerIcon">
+            <div class="profileHeader__username">
+                <h1>{{ user.username }}</h1>
+                <p>Level: {{ user.getLevel() }}</p>
             </div>
         </div>
-    </div>
-    <div class="Main" id="Main">
-        <div class="SummonerContent" style="display: block;">
-            <div class="SideContent">
-                <div class="TierBox">
-                    <div class="SummonerRating">
-                        <div class="RankedIcon">
-                            {% set path=user.getTierIcon() %}
-                            <img src={{ url_for('static', filename=path) }} class="Image">
-                        </div>
-                        <div class="RankTierInfo">
-                            {% set stats=user.getStats() %}
-                            {% set type, tier, rank, points=stats.get('queueType'), stats.get('tier'), 
-                            stats.get('rank'), stats.get('leaguePoints') %}
-                            <div class="RankType">{{ type }}</div>
-                            <div class="TierRank">{{tier + ' ' + rank}}</div>
-                            <div class="TierInfo">
-                                <span class="LeaguePoints">{{ points ~ " LP" }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="MatchHistoryGraph">
-                <canvas id="myChart" width="1000" height="400"></canvas>
-                <script src="{{ url_for('static', filename='graphs/match_history.js') }}"></script>
+        <div class="profileRank">
+            {% set path=user.getTierIcon() %}
+            <img src={{ url_for('static', filename=path) }} class="profileRank__image">
+            {% set stats=user.getProfileRank() %}
+            {% set tier, rank, lp, wins, losses, win_ratio=stats.get('tier'), stats.get('rank'), 
+                stats.get('lp'), stats.get('wins'), stats.get('losses'), stats.get('win_ratio') %}
+            <div class="profileRank__info">
+                <h2>{{ tier + ' ' + rank}}</h2>
+                <p>{{ lp ~ " LP / " ~ wins ~ " W " ~ losses ~ " L" }}</p>
+                <p>{{ win_ratio ~ "% Win Ratio" }}</p>
             </div>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2>Top Five Champions</h2>
-                {% set top_five=user.getTopFiveChamps() %}
-                <ul class="list-group">
-                    {% for key, value in top_five.items() %}
-                        <li class="list-group-item">{{key}} : {{value}}</li>
-                    {% endfor %}
-                </ul>
+        <div class="seasonStats">
+            <h2>Season 2020</h2>
+            <hr>
+        </div>
+        <div class="matchHistory">
+            {% set match_history=user.getMatchHistory() %}
+            {% for match in match_history %}
+            <div class="matchHistory__match">
+                {% set outcome=match.get('outcome') %}
+                {{ outcome }} : {{ match.get('champion') }}
+                {% if outcome=='Victory' %}
+                    <!-- Green -->
+                {% else %}
+                    <!-- Red -->
+                {% endif %}
             </div>
-            <div class="card">
-                <h2>Match History</h2>
-                {% set match_history=user.getMatchHistory() %}
-                <ul class="list-group list-group-flush">
-                    {% for match in match_history %}
-                        {% set outcome=match.get('outcome') %}
-                        {% if outcome=='Victory' %}
-                            <li class="list-group-item list-group-item-info">{{outcome}} : {{match.get('champion')}}</li>
-                        {% else %}
-                            <li class="list-group-item list-group-item-danger">{{outcome}} : {{match.get('champion')}}</li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

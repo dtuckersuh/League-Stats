@@ -33,9 +33,17 @@
     Disabled:
         38% opacity #FFFFFF
 */
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 html {
 	font-family: "Roboto-Condensed", "Eczar", Arial, Helvetica, sans-serif;
 	background-color: #121212;
+	box-sizing: border-box;
 }
 
 :root {
@@ -65,36 +73,29 @@ body {
 /* NAVBAR */
 .navbar {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 	background-color: #424242;
-	height: 5vh;
+	padding: 0 20px;
 }
 .navbar > * {
 	margin: 5px 0;
 }
-.logo {
-	border-radius: 20px;
-	background: var(--secondary-green);
-	width: 50px;
-	text-align: center;
-	padding: 2px;
-}
 .logo__letters {
 	text-decoration: none;
 	font-family: "Eczar", serif;
-	color: var(--primary-color);
+	color: #fff;
+	opacity: var(--high-emphasis);
 	font-size: 30px;
-}
-.navbar__searchTerm,
-.navbar__searchButton {
-	padding: 5px 0;
+	height: 36px;
 }
 
-.navbar__searchTerm {
+input[type='text'] {
+	vertical-align: bottom;
 	border: 3px solid var(--primary-color);
-	border-right: none;
 	padding: 5px;
-	height: 20px;
+	height: 36px;
 	border-radius: 5px 0 0 5px;
 	outline: none;
 	color: var(--primary-color);
@@ -102,7 +103,6 @@ body {
 }
 
 .navbar__searchButton {
-	position: fixed;
 	width: 40px;
 	height: 36px;
 	border: 1px solid var(--primary-color);
@@ -130,6 +130,7 @@ body {
 	padding: 5px;
 	font-weight: bolder;
 }
+
 span.stats {
 	color: var(--primary-color);
 }
@@ -140,7 +141,9 @@ p {
     color: #FFFFFF;
     opacity: var(--medium-emphasis);
 }
-
+.header p {
+	margin: 8px;
+}
 /* LANDING PAGE SEARCH BAR */
 .main__search {
 	border: 3px solid var(--primary-color);
@@ -158,7 +161,7 @@ p {
 .main__searchButton {
 	position: fixed;
 	width: 40px;
-	height: 51px;
+	height: 36px;
 	border: 1px solid var(--primary-color);
 	background: var(--primary-color);
 	text-align: center;
@@ -174,9 +177,126 @@ p {
 	width: 668.79px;
 }
 
+						/*************************** PROFILE PAGE ***************************/
+.profilePage{
+	display: grid;
+	justify-content: center;
+	height: calc(100% - 5vh);
+	grid-template-columns: [user] 350px [match-history] auto;
+	grid-template-rows: [top-margin] 100px [header] 120px [rank-recent] 150px [match-history] auto;
+	grid-column-gap: 50px;
+}
+/* PROFILE HEADER */
+.profileHeader {
+	display: flex;
+	grid-column: user;
+	grid-row: header;
+	align-items: center;
+	width: 350px;
+	height: 100px;
+	font-family: "Roboto Condensed", sans-serif;
+	padding: 1em;
+	background-color: #424242;
+	color: #ffffff;
+	opacity: var(--high-emphasis);
+	border-radius: 25px;
+}
+.profileHeader__summonerIcon {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+.profileHeader__username {
+	margin: 0 0 7px 15px;
+}
+.profileHeader__username h1 {
+	opacity: var(--high-emphasis);
+	margin: 10px 0 0 0;
+}
+.profileHeader__username p {
+	margin: 5px 0;
+}
+/* Profile Rank */
+.profileRank {
+	display: flex;
+	font-family: 'Roboto-Condensed', sans-serif;
+	align-items: center;
+	grid-column: user;
+	grid-row: rank-recent;
+	height: 125px;
+	width: 350px;
+	background-color: #424242;
+	border-radius: 25px;
+}
+.profileRank > h2, p {
+	margin: 0;
+}
+.profileRank__image {
+	height: 100px;
+	width: 90px;
+	margin: 20px;
+}
+.profileRank__info {
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	justify-content: space-evenly;
+}
+.profileRank__info h2 {
+	color: #fff;
+	opacity: var(--high-emphasis);
+	margin: 0 0 5px 0;
+}
+/* Season Stats */
+.seasonStats {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto-Condensed', sans-serif;
+	grid-column: user;
+	grid-row: match-history;
+	height: 550px;
+	width: 350px;
+	background-color: #424242;
+	border-radius: 25px;
+}
+.seasonStats h2 {
+	margin: 15px 0 5px 0;
+	color: #fff;
+	opacity: var(--high-emphasis);
+	align-self: center;
+}
+.seasonStats hr {
+	width: 300px;
+}
+/* Match History */
+.matchHistory {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Roboto-Condensed', sans-serif;
+	grid-column: match-history;
+	grid-row: header / spanmatch-history;
+	height: auto;
+	width: 550px;
+	background-color: #424242;
+	border-radius: 25px;
+}
+.matchHistory__match {
+	display: flex;
+	margin: 3px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	height: 75px;
+	width: 500px;
+	background-color: #6d6d6d;
+}
+
 /* FOOTER */
 footer {
 	position: absolute;
 	bottom: 0;
+	padding: 15px;
 	font-family: "Roboto Condensed";
 }

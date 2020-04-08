@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/base.css">
     <link href="https://fonts.googleapis.com/css2?family=Eczar&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/LS-Logo.png">
     <script src="https://kit.fontawesome.com/05db16e2d3.js" crossorigin="anonymous"></script>
     <title>LeagueStats</title>
 </head>
 <body>
-    {% if request.path != "/" and request.path != "/index" %}{
+    {% if request.path != "/" and request.path != "/index" %}
         {% block navbar %}
         <nav class="navbar">
             <div class="logo">
-                <a href={{ url_for('index') }} class="logo__letters">LS</a>
+                <a href={{ url_for('index') }} class="logo__letters">League<span class="stats">Stats</span></a>
             </div>
             <div class="navbar__search">
                 <form action="{{ url_for('user', username=q)}}">
-                    <input type="text" class="navbar__searchTerm" placeholder="Search.." name="q">
-                    <button type="submit" class="navbar__searchButton">
+                    <input type="text" class="navbar__searchTerm" placeholder="Search.." name="q"><button type="submit" class="navbar__searchButton">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
