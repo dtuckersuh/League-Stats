@@ -117,7 +117,7 @@ class Summoner:
                           'champion': self.getChampion(champion)}
             matchlist.append(match_info)
         return matchlist
-    
+
     # Helper for Match History
     # Returns List[last 10 matches] which contain lane and gameId
     def getMatchlist(self):
@@ -144,4 +144,3 @@ class Summoner:
             return 'Victory'
         else:
             return 'Defeat'
-            

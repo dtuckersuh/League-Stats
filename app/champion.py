@@ -1,4 +1,3 @@
-from .summoner import Summoner
 import json
 
 class Champion:
