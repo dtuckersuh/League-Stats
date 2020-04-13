@@ -1,5 +1,6 @@
 from app import app
 from .league import League
+from .champion import Champion
 from riotwatcher import RiotWatcher, ApiError
 import json
 import os

@@ -30,12 +30,19 @@
             {% for match in match_history %}
             <div class="matchHistory__match">
                 {% set outcome=match.get('outcome') %}
-                {{ outcome }} : {{ match.get('champion') }}
                 {% if outcome=='Victory' %}
-                    <!-- Green -->
+                <!-- Green -->
+                <div class="matchHistory__match--victory">
                 {% else %}
-                    <!-- Red -->
+                <!-- Red -->
+                <div class="matchHistory__match--defeat">
                 {% endif %}
+                    <div class="matchHistory__match__image">
+                        <div class="matchHistory__match__stats">
+                            <p>{{ outcome }} : {{ match.get('champion') }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             {% endfor %}
         </div>
