@@ -8,7 +8,7 @@ import re
 
 class Summoner:
 
-    watcher = RiotWatcher('RGAPI-415b6f2d-617e-4c86-85fc-de87ed865ac8')
+    watcher = RiotWatcher(SECRET_KEY)
     region = 'na1'
 
     def __init__(self, username):
